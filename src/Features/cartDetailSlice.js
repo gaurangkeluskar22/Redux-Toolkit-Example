@@ -1,19 +1,20 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const cartDetailSlice = createSlice({
-    name:"cartDetail",
-    initialState:{
-        cart:[],
-        len:0,
+  name: "cartDetail",
+  initialState: {
+    cart: [],
+    len: 10,
+  },
+  reducers: {
+    addProductToCart: (state, action) => {
+      state.cart.push(action.payload);
     },
-    reducers:{
-        addProductToCart:(state,action)=>{
-            state.cart.push(action.payload);
-        },
-        findLenOfCart:(state)=>{
-            state.len = state.cart.length;
-        }
-    }
+    findLenOfCart: (state) => {
+      state.len = state.cart.length;
+    },
+  },
 });
 
 export default cartDetailSlice.reducer;
+export const { addProductToCart, findLenOfCart } = cartDetailSlice.actions;
