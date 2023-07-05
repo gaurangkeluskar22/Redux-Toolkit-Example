@@ -11,9 +11,7 @@ export const cartDetailSlice = createSlice({
       state.cart.push(action.payload);
       state.len = state.cart.length;
     },
-    
     removeProductFromCart: (state,action) =>{
-        console.log(action.payload);
         if(action.payload){
             state.cart = state.cart.filter((ele)=> ele.id !== action.payload);
             state.len = state.cart.length;

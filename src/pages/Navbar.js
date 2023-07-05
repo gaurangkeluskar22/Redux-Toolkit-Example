@@ -1,22 +1,24 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
   const { cart, len } = useSelector((state) => state.cart);
 
   return (
-    <div style={{ display: "flex", alignItems: "space-between" }}>
-      <span className="fs-1">Redux Toolkit Example</span>
-      <span className="">
-        <Link to="/" className="fs-1 p-2">
+     
+    <div className="row" style={{position:"sticky",top:"0",background:"black",zIndex:"1"}} >
+      <div className="col-lg-8">
+        <span className="fs-3" style={{color:"white"}}>Redux Toolkit Example</span>
+        <Link to="/" className="fs-3 p-2" style={{color:"white"}}>
           Home
         </Link>
-        <Link to="/Cart" className="fs-1 p-2">
+        <Link to="/Cart" className="fs-3 p-2" style={{color:"white"}}>
           Cart
         </Link>
-      </span>
-      <span className="fs-1">Cart Item:{len}</span>
+      </div>
+      <div className="col-lg-4">
+        <span className="fs-3" style={{color:"white"}}>Cart Item:{len}</span>
+      </div>
     </div>
   );
 };
