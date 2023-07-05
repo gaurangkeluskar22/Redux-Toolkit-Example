@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {useSelector,useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { fetchData } from "../Features/productDetailSlice";
-import  {addProductToCart,findLenOfCart} from '../Features/cartDetailSlice';
+import { addProductToCart, findLenOfCart } from "../Features/cartDetailSlice";
+import { Toast } from "react-bootstrap";
 
 const Products = () => {
   const { products, loading } = useSelector((state) => state.app);
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,13 +26,19 @@ const Products = () => {
                 src={product.image}
                 style={{ width: 100 }}
               ></img>
-              <button className="btn btn-primary w-50 mx-auto" onClick={()=>dispatch(addProductToCart(product))}>
+              <button
+                className="btn btn-primary w-50 mx-auto"
+                onClick={() => {
+                  dispatch(addProductToCart(product));
+                }}
+              >
                 Add to Cart
               </button>
             </div>
           );
         })
       )}
+
     </div>
   );
 };
