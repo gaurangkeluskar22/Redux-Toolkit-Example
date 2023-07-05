@@ -1,16 +1,9 @@
 import { Link } from "react-router-dom";
-import { findLenOfCart } from "../Features/cartDetailSlice";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 const Navbar = () => {
-  const { len } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log("inside useeffect of navbar");
-    dispatch(findLenOfCart());
-  }, []);
+  const { cart, len } = useSelector((state) => state.cart);
 
   return (
     <div style={{ display: "flex", alignItems: "space-between" }}>

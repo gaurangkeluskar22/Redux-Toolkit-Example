@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-
+import { removeProductFromCart } from "../Features/cartDetailSlice";
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
-
+  const dispatch = useDispatch();
   return (
     <div>
       {cart.map((ele) => {
@@ -13,9 +13,12 @@ const Cart = () => {
               src={ele.image}
               style={{ width: 100 }}
             ></img>
-            <button className="btn btn-primary w-50 mx-auto">
-                Remove from Cart
-              </button>
+            <button
+              className="btn btn-danger w-50 mx-auto"
+              onClick={() => dispatch(removeProductFromCart(ele.id))}
+            >
+              Remove from Cart
+            </button>
           </div>
         );
       })}
