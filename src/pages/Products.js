@@ -24,7 +24,7 @@ const Products = () => {
                 style={{ width: 100 }}
               ></img>
               <button className="btn btn-primary w-50 mx-auto">
-                Add to Card
+                Add to Cart
               </button>
             </div>
           );
